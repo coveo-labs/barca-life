@@ -1,11 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
 import GetBlogPost from '../../../queries/GetBlogPost';
 
-const GRAPHQL_ENDPOINT = "https://cg.optimizely.com/content/v2";
-const ACCESS_TOKEN = "3lTSsU0BvWQ5F14iymXbRQUsbVZlTT5ofZQ3bgYIYrYAabGj";
-
 async function fetchBlogPost(slug:string, locale:string) {
-  const client = new GraphQLClient(`${GRAPHQL_ENDPOINT}?auth=${ACCESS_TOKEN}`);
+  const client = new GraphQLClient(`${process.env.GRAPHQL_ENDPOINT}?auth=${process.env.ACCESS_TOKEN}`);
   const data: any = await client.request(GetBlogPost,{"url":`/${locale}/blog/${slug}/`});
   return data.BlogPostPage.items[0];
 }

@@ -12,9 +12,6 @@ query MyQuery($url:String!) {
         url {
           base
           default
-          hierarchical
-          internal
-          type
         }
         types
         status

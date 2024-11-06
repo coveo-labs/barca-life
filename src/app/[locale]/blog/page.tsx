@@ -20,6 +20,7 @@ export default async function AllBlogPostsPage(data:any ) {
 
   return (
     <main>
+        <h1>Blog List</h1>
         <ul>
         {blogPosts.map((post: any, index: number) => (
             <li key={`list-${index}`}><a key={`link-${index}`} href={`${post._metadata.url.base}${post._metadata.url.default}`}>{post.Heading}</a></li>
